@@ -21,6 +21,7 @@ def backtrack(groups, assignment):
         Highly inefficient, but it works.
     """
     if '?' not in assignment:
+        print(assignment)
         return 1
 
     num_consistent_assignments = 0
@@ -33,7 +34,7 @@ def backtrack(groups, assignment):
     return num_consistent_assignments
 
 with open('input.txt', 'r') as f:
-    lines = [line[:-1] for line in f.readlines()]
+    lines = [line[:-1] for line in f.readlines()][1:2]
 
 groups = [list(map(int, line.split(' ')[1].split(','))) for line in lines]
 springs = [line.split(' ')[0] for line in lines]

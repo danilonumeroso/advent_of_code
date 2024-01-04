@@ -1,22 +1,19 @@
-import minizinc
+import asyncio
+from minizinc import Instance, Model, Solver
 
-# Create a MiniZinc model
-model = minizinc.Model()
-model.add_string("""
-var -100..100: x;
-int: a; int: b; int: c;
-constraint a*(x*x) + b*x = c;
-solve satisfy;
-""")
+# Load the model from the file
+model = Model("./aoc.mzn")
 
-# Transform Model into a instance
-gecode = minizinc.Solver.lookup("gecode")
-inst = minizinc.Instance(gecode, model)
-inst["a"] = 1
-inst["b"] = 4
-inst["c"] = 0
+# Create a solver configuration
+solver = Solver.lookup("gecode")
 
-# Solve the instance
-result = inst.solve(all_solutions=True)
-for i in range(len(result)):
-    print("x = {}".format(result[i, "x"]))
+# Create an instance of the model
+instance = Instance(solver, model)
+
+# Set the instance parameters
+instance["length"] = 16
+instance["groups"] = [2, 1, 2, 3]
+
+# Solve the problem and count the solutions
+sols = instance.solve(all_solutions=True)
+print("Number of solutions:", len(sols))
