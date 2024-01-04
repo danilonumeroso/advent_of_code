@@ -1,5 +1,4 @@
 import re
-from tqdm import tqdm
 
 def check_constraints(assignment, groups):
     if '?' in assignment:
