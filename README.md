@@ -1,4 +1,4 @@
-### Progress 41/50 :star:
+### Progress 47/50 :star:
 | [Day 1](https://adventofcode.com/2023/day/1)      | :star::star: |
 | [Day 2](https://adventofcode.com/2023/day/2)      | :star::star: |
 | [Day 3](https://adventofcode.com/2023/day/3)      | :star::star: |
@@ -19,8 +19,8 @@
 | [Day 18](https://adventofcode.com/2023/day/18)    | :star::star: |
 | [Day 19](https://adventofcode.com/2023/day/19)    | :star::star: |
 | [Day 20](https://adventofcode.com/2023/day/20)    | :star::star: |
-| [Day 21](https://adventofcode.com/2023/day/21)    | :star::x:    |
-| [Day 22](https://adventofcode.com/2023/day/22)    | :x::x:       |
-| [Day 23](https://adventofcode.com/2023/day/23)    | :x::x:       |
-| [Day 24](https://adventofcode.com/2023/day/24)    | :x::x:       |
+| [Day 21](https://adventofcode.com/2023/day/21)    | :star::star: |
+| [Day 22](https://adventofcode.com/2023/day/22)    | :star::star: |
+| [Day 23](https://adventofcode.com/2023/day/23)    | :star::star: |
+| [Day 24](https://adventofcode.com/2023/day/24)    | :star::x:    |
 | [Day 25](https://adventofcode.com/2023/day/25)    | :x::x:       |
