@@ -55,6 +55,29 @@ if __name__ == "__main__":
     # print_coordinates(lines, [(S[0], i) for i in range(len(lines))])
     # print_coordinates(lines, [(i, S[0]) for i in range(len(lines))])
 
+    """
+        So, it turns out that for the test input, there are no walls ('#') in the same row and column 
+        as the starting position (which is exactly the middle of the map). Furthemore, no walls are placed in 
+        the path from the center of the map to the corners. This leads to two observations:
+        - The area of the garden grows like a rhombus.
+        - After len(lines) step in every direction, the elf is back to the middle of the map
+
+        This means that the number of garden plots visited every 65 + n*size lines is a quadratic function
+        *from the very beginning of the map*. With that being said, we can find the first three values of the
+        function (f(65), f(65 + size), f(65 + 2*size)) and then find the coefficients of the quadratic
+        function, like this:
+
+        a = (f(65) - 2*f(65 + size) + f(65 + 2*size)) / 2
+        b = (4*f(65 + size) - 3*f(65) - f(65 + 2*size)) / 2
+        c = f(65)
+
+        Then, we can just compute f(26501365 // size) and we're done.
+
+        As you may have guessed, this solution only works if several assumptions hold (map is a square, few obstacles, etc.).
+        Such assumptions don't even hold for the example input, so you can't even design your algorithm based on it, which is incredibly
+        bad. Watch this video by HyperNeutrino for more details: https://www.youtube.com/watch?v=C5wYxR6ZAPM&t=6011s 
+    """
+
     alpha = bfs(lines, S, max_steps=65)
     beta = bfs(lines, S, max_steps=65+len(lines))
     gamma = bfs(lines, S, max_steps=65+2*len(lines))
