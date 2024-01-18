@@ -1,0 +1,13 @@
+This answer can be obtained by a fully algebraic approach, which I found on this amazing Reddit post:
+https://www.reddit.com/r/adventofcode/comments/18pum3b/comment/kge0mw5/
+The key idea here is to find this invariance: (Vi-Vj) \\cross (Pi-Pj) \\dot X = (Vi-Vj) \\dot Pi \\cross Pj 
+Where X is the answer we are looking for, and Pi and Vi are the coordinates/velocity of the i-th hailstone.
+To find all three P-coordinates we need three equations, so we need three hailstones. The above equation
+can be written in matrix form as:
+
+Ax = b  ==> x = A^-1 * b
+
+where A is a 3x3 matrix where each row is (Vi-Vj) \\cross (Pi-Pj) and b is a 3x1 vector where each row is
+(Vi-Vj) \\dot Pi \\cross Pj.
+
+To solve this, I input these equations in WolframAlpha to get the answer.
