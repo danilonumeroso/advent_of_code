@@ -1,10 +1,6 @@
 from collections import defaultdict
 
-# def find_first(bricks, cond_fn):
-#     for brick in bricks:
-#         if cond_fn(brick):
-#             return brick
-#     return None
+
 
 def intersects(brick1, brick2):
     start_1, end_1 = brick1
@@ -23,92 +19,13 @@ def intersects(brick1, brick2):
 
     return x1 <= x2 and y1 <= y2
 
-# def count_non_supports(bricks):
-#     ans = 0
-#     for i, current_brick in enumerate(bricks):
-#         above = list(filter(lambda b: b[0][-1] == current_brick[1][-1]+1 and intersects(b, current_brick), bricks[:i]))
-#         # print(current_brick, above)
-#         if len(above) == 0:
-#             # print("Has nothing above, can be safely removed")
-#             # input()
-#             ans += 1
-#             continue
-
-#         same_z_axis = list(filter(lambda b: b[0][-1] == current_brick[0][-1] and b is not current_brick, bricks))
-#         is_not_support = True
-#         # print("Other candidates", same_z_axis)
-#         for a in above:
-#             if not any(intersects(a, b) for b in same_z_axis):
-#                 # print(a, "has no support. Can't be safely removed")
-#                 is_not_support = False
-#                 break
-            
-#         if is_not_support:
-#             ans += 1
-
-#         # input()
-#     return ans
-
-
-# def fall(bricks):
-#     for i, brick in enumerate(bricks):
-#         start, _ = brick
-
-#         if start[-1] == 1:
-#             continue
-
-#         support = find_first(reversed(bricks[:i]), lambda s: intersects(s, brick))
-#         support = support if support else [[0,0,1], [0,0,1]]
-
-#         _, support_end = support
-
-#         fall_length = start[-1] - (support_end[-1] + 1)
-
-#         brick[1][-1] -= fall_length
-#         brick[0][-1] -= fall_length
-
-#     return bricks
-
-# def fall_2(bricks):
-
-#     is_support = {}
-#     for brick in bricks:
-#         is_support[brick[0]] = False
-
-#     for i, brick in enumerate(bricks):
-#         idx, (start, _) = brick
-
-#         if start[-1] == 1:
-#             continue
-
-#         support = find_first(reversed(bricks[:i]), lambda s: intersects(s[1], brick[1]))
-#         if support:
-#             support_2 = find_first(reversed(bricks[:i]), lambda s: intersects(s[1], brick[1]) and s[0] != support[0])
-#             if not support_2 or support_2[1][1][-1] == support[1][1][-1]:
-#                 is_support[support[0]] = True
-
-#         support = support if support else [-1, [[0,0,1], [0,0,1]]]
-
-#         _, support_end = support[1]
-
-#         fall_length = start[-1] - (support_end[-1] + 1)
-
-#         brick[1][1][-1] -= fall_length
-#         brick[1][0][-1] -= fall_length
-
-#     return bricks, is_support
-
-
 def find_supports(bricks):
     supported_by = defaultdict(set)
     for i, (idx_b, current_brick) in enumerate(bricks):
-        if idx_b == 471:
-            breakpoint()
         start, _ = current_brick
         supports = list(filter(lambda s: intersects(s[1], current_brick), reversed(bricks[:i])))
         
-        z_end = supports[0][1][1][-1] if len(supports) > 0 else 0
-        
+        z_end = max(map(lambda x: x[1][1][-1], supports)) if len(supports) > 0 else 0
         fall_length = start[-1] - (z_end + 1)
 
         current_brick[1][-1] -= fall_length
