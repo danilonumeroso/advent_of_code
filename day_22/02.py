@@ -49,20 +49,6 @@ def invert_dict(d):
             inv[value].add(k)
     return inv
 
-def count_falling_bricks(supports_dict, supported_by_dict, number_of_bricks):
-    res = 0 
-    for i in range(number_of_bricks):
-        number_of_falling_bricks = 0
-        brick_list = supports_dict[i]
-        cond = True
-        for v in brick_list:
-            if len(supported_by_dict[v]) == 1:
-                number_of_bricks += 1
-        if cond:
-            res += 1
-
-    return res
-
 def count_falling(supports_dict, supported_by_dict, brick):
     if len(supports_dict) == 0:
         return 0
