@@ -1,0 +1,14 @@
+# My Advent of Code adventure
+
+This is my personal space for tackling the festive coding challenges of Advent of Code (starting from year 2023).
+Overall, I found it a fun challenge that also makes you learn new things along the way (e.g., shoelace area). 
+
+## Stars
+
+| Year | Stars |
+|---|---|
+| 2023 | 50/50 |
+
+## Notes
+Solutions are usually crafted to be the most elegant (to my taste, at least!), even though elegance must take a backseat to
+performance and efficiency sometimes :)
