@@ -1,6 +1,6 @@
-# My Advent of Code adventure
+# Advent of Code
 
-This is my personal space for tackling the festive coding challenges of Advent of Code (starting from year 2023).
+This is my personal space for tackling the coding challenges of [Advent of Code](https://adventofcode.com) (starting from year 2023).
 Overall, I found (and keep finding!) it a fun challenge that also makes you learn new things along the way.
 
 ## Stars
